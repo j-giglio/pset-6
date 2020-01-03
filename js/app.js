@@ -5,7 +5,7 @@ window.onload = function() {
 let listOfItems = [];
 let toDo = document.getElementById("toDo");
 
-const addItem = function() {
+function addItem() {
   let input = document.getElementById("textbox").value;
   console.log(input)
   const listItem = document.createElement("li");
@@ -17,7 +17,7 @@ const addItem = function() {
   displayItems
 }
 
-const displayItems = function() {
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+function displayItems() {
+  for (let i = 0; i < listOfItems.length; i++) {
+    toDo.append(listOfItems[i]);
 }
