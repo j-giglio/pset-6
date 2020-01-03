@@ -1,0 +1,30 @@
+* {
+  font-family: "Comic Sans MS", "Times New Roman";
+
+}
+
+div {
+
+}
+
+h1 {
+  color: #4B0082;
+}
+
+p {
+  color: green;
+}
+
+ul {
+
+}
+
+ol li {
+
+}
+body {
+  background-image: url("../images/obama.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}

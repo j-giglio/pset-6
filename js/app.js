@@ -4,15 +4,20 @@ window.onload = function() {
 
 let listOfItems = [];
 let toDo = document.getElementById("toDo");
-let itemNumber = 0;
 
 const addItem = function() {
   let input = document.getElementById("textbox").value;
+  console.log(input)
   const listItem = document.createElement("li");
-  String(itemNumber);
-  listItem.setAttribute(id = "item" + itemNumber);
-  itemNumber++;
-  
+  listItem.id = "item"
   listItem.innerHTML = input;
-  toDo.append(listItem);
+  console.log(listItem)
+  listOfItems.push(listItem);
+  console.log(listOfItems)
+  displayItems
+}
+
+const displayItems = function() {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
 }
