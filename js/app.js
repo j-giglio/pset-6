@@ -17,5 +17,6 @@ function addItem() {
 function displayItems() {
   for (let i = 0; i < listOfItems.length; i++) {
     toDo.append(listOfItems[i]);
+    console.log(listOfItems[i]);
   }
 }
