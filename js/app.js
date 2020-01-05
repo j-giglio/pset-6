@@ -24,7 +24,7 @@ function addItem() {
   displayItems();
 }
 
-// function displayItems() {
+function displayItems() {
 //   toDo.innerHTML = ""
   for (let i = 0; i < listOfItems.length; i++) {
     toDo.appendChild(listOfItems[i]);
