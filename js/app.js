@@ -21,6 +21,7 @@ function addItem() {
   listItem.appendChild(check);
   listItem.appendChild(listText);
   listOfItems.push(listItem);
+  console.log(listOfItems)
   displayItems();
 }
 
