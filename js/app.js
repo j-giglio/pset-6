@@ -6,9 +6,11 @@ window.onload = function() {
 }
 
 let listOfItems = [];
-let toDo = document.getElementById("toDo");
+let toDo;
+let indexNumber = 0;
 
 function addItem() {
+  toDo = document.getElementById("toDo");
   let input = document.getElementById("textbox").value;
   const listItem = document.createElement("p");
   listItem.id = "item";
@@ -43,13 +45,13 @@ function displayItems() {
   }
 }
 
-function raisePriority {
+function raisePriority() {
   const index = ;
   listOfItems.unshift(listOfItems.splice(index, 1)[0]);
   displayItems();
 }
 
-function markDone {
+function markDone() {
   const index = ;
   if (index.className == "incomplete") {
     index.className = "complete";
@@ -59,7 +61,7 @@ function markDone {
   displayItems();
 }
 
-function removeItem {
+function removeItem() {
   const index = ;
   listOfItems.push(listOfItems.splice(index, 1)[0]);
   displayItems();
