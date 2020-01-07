@@ -41,6 +41,8 @@ function addItem() {
     cross.id = indexNumber + " cross";
     listText.id = indexNumber + " item";
     
+    indexNumber++
+    
     exclamationArray.push(exclamation);
     checkArray.push(check);
     crossArray.push(cross);
