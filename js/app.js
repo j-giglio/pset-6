@@ -29,7 +29,7 @@ function addItem() {
     const cross = document.createElement("span");
     const listText = document.createElement("span");
     
-    exclamation.innerHTML = "! ";
+    exclamation.innerHTML = " ! ";
     check.innerHTML = "✓ ";
     cross.innerHTML = " ✗";
     listText.innerHTML = input;
