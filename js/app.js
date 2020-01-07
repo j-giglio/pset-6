@@ -1,8 +1,5 @@
 window.onload = function() {
   document.getElementById("add").onclick = addItem;
-  document.getElementByClassName(priorityButton).onclick = raisePriority;
-  document.getElementByClassName(doneButton).onclick = markDone;
-  document.getElementByClassName(crossButton).onclick = removeItem;
 }
 
 let listOfItems = [];
@@ -11,6 +8,10 @@ let checkArray = [];
 let crossArray = [];
 let toDo;
 let indexNumber = 0;
+
+document.getElementByClassName(priorityButton).onclick = raisePriority;
+document.getElementByClassName(doneButton).onclick = markDone;
+document.getElementByClassName(crossButton).onclick = removeItem;
 
 function addItem() {
   if (document.getElementById("textbox").value == "") {
@@ -80,7 +81,6 @@ function displayItems() {
 
 // function markDone() {
 //   let index = .id;
-//   index.replace(" check", "");
 //   if (index.className == "incomplete") {
 //     index.className = "complete";
 //   } else if (index.className == "complete") {
