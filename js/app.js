@@ -9,6 +9,7 @@ let crossArray = [];
 let toDo;
 let indexNumber = 0;
 document.getElementByClassName(priorityButton).onclick = raisePriority;
+document.getElementByClassName(prioritizedButton).onclick = lowerPriority;
 document.getElementByClassName(doneButton).onclick = markDone;
 document.getElementByClassName(crossButton).onclick = removeItem;
 
@@ -77,8 +78,18 @@ function displayItems() {
 //   let index = .id;
 //   index.replace(" excl", "");
 //   listOfItems.unshift(listOfItems.splice(index, 1)[0]);
+//   exclamationArray[index].class = prioritizedButton
 //   displayItems();
 // }
+
+// function lowerPriority() {
+//   let index = .id;
+//   index.replace(" excl", "");
+//   listOfItems.push(listOfItems.splice(index, 1)[0]);
+//   exclamationArray[index].class = prioritizedButton
+//   displayItems();
+// }
+
 
 // function markDone() {
 //   let index = .id;
@@ -93,6 +104,6 @@ function displayItems() {
 // function removeItem() {
 //   let index = .id;
 //   index.replace(" cross", "");
-//   listOfItems.push(listOfItems.splice(index, 1)[0]);
+//   listOfItems.splice(index, 1)[0];
 //   displayItems();
 // }
