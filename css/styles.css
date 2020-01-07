@@ -3,8 +3,9 @@
 
 }
 
-div {
-
+.complete {
+  text-decoration: line-through;
+  color: green;
 }
 
 h1 {
