@@ -21,7 +21,7 @@ function addItem() {
     let input = document.getElementById("textbox").value;
     const listItem = document.createElement("p");
     listItem.id = "item";
-    listItem.className = "incomplete";
+    listItem.className = "unprioritized";
     
     const exclamation = document.createElement("span");
     const check = document.createElement("span");
@@ -36,6 +36,7 @@ function addItem() {
     exclamation.className = "priorityButton";
     check.className = "doneButton";
     cross.className = "crossButton";
+    listText.className = "incomplete";
     
     exclamation.id = indexNumber + " excl";
     check.id = indexNumber + " check";
