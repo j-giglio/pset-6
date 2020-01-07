@@ -8,6 +8,10 @@ let checkArray = [];
 let crossArray = [];
 let toDo;
 let indexNumber = 0;
+document.getElementByClassName(priorityButton).onclick = raisePriority;
+document.getElementByClassName(doneButton).onclick = markDone;
+document.getElementByClassName(crossButton).onclick = removeItem;
+
 
 function addItem() {
   if (document.getElementById("textbox").value == "") {
@@ -52,11 +56,6 @@ function addItem() {
     listOfItems.push(listItem);
   
     document.getElementById("textbox").value = ""
-    
-    document.getElementByClassName(priorityButton).onclick = raisePriority;
-    document.getElementByClassName(doneButton).onclick = markDone;
-    document.getElementByClassName(crossButton).onclick = removeItem;
-
     
     displayItems();
   }
