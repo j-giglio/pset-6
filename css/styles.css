@@ -8,21 +8,28 @@
   color: green;
 }
 
+.priorityButton {
+  color: red;
+}
+
+.prioritizedButton {
+  color: red;
+  background-color: black;
+}
+
+.doneButton {
+  color: green;
+}
+
 h1 {
   color: #4B0082;
+  font-size: 40px;
 }
 
 p {
-  
+  font-size: 26px;
 }
 
-ul {
-
-}
-
-ol li {
-
-}
 body {
   background-image: url("../images/obama.jpg");
   background-repeat: no-repeat;
