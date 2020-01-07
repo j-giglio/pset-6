@@ -6,6 +6,9 @@ window.onload = function() {
 }
 
 let listOfItems = [];
+let exclamationArray = [];
+let checkArray = [];
+let 
 let toDo;
 let indexNumber = 0;
 
@@ -15,23 +18,32 @@ function addItem() {
   const listItem = document.createElement("p");
   listItem.id = "item";
   listItem.className = "incomplete";
+    
   const exclamation = document.createElement("span");
   const check = document.createElement("span");
   const cross = document.createElement("span");
   const listText = document.createElement("span");
+    
   exclamation.innerHTML = "! ";
   check.innerHTML = "✓ ";
   cross.innerHTML = "✗ ";
+  listText.innerHTML = input;
+
   exclamation.className = "priorityButton";
   check.className = "doneButton";
   cross.className = "removeButton";
-  listText.innerHTML = input;
+    
+  exclamation.id = indexNumber;
+  check.id = indexNumber;
+  cross.id = indexNumber;
+  listText.id = indexNumber;
+  
   listItem.appendChild(exclamation);
   listItem.appendChild(check);
   listItem.appendChild(listText);
   listItem.appendChild(cross);
   listOfItems.push(listItem);
-  console.log(listOfItems);
+    
   exclamationArray = document.getElementByClassName(priorityButton);
   checkArray = document.getElementByClassName(doneButton);
   displayItems();
@@ -45,24 +57,24 @@ function displayItems() {
   }
 }
 
-function raisePriority() {
-  const index = ;
-  listOfItems.unshift(listOfItems.splice(index, 1)[0]);
-  displayItems();
-}
+// function raisePriority() {
+//   const index = .id;
+//   listOfItems.unshift(listOfItems.splice(index, 1)[0]);
+//   displayItems();
+// }
 
-function markDone() {
-  const index = ;
-  if (index.className == "incomplete") {
-    index.className = "complete";
-  } else if (index.className == "complete") {
-    index.className = "incomplete";
-  }
-  displayItems();
-}
+// function markDone() {
+//   const index = .id;
+//   if (index.className == "incomplete") {
+//     index.className = "complete";
+//   } else if (index.className == "complete") {
+//     index.className = "incomplete";
+//   }
+//   displayItems();
+// }
 
-function removeItem() {
-  const index = ;
-  listOfItems.push(listOfItems.splice(index, 1)[0]);
-  displayItems();
-}
+// function removeItem() {
+//   const index = .id;
+//   listOfItems.push(listOfItems.splice(index, 1)[0]);
+//   displayItems();
+// }
