@@ -22,6 +22,11 @@
   color: green;
 }
 
+.crossButton {
+  background-color: red;
+  color: black;
+}
+
 h1 {
   color: #4B0082;
   font-size: 40px;
