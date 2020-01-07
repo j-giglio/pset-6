@@ -6,83 +6,114 @@ let listOfItems = [];
 let exclamationArray = [];
 let checkArray = [];
 let crossArray = [];
+let listTextArray = [];
 let toDo;
 let indexNumber = 0;
-document.getElementByClassName(priorityButton).onclick = raisePriority;
-document.getElementByClassName(prioritizedButton).onclick = lowerPriority;
-document.getElementByClassName(doneButton).onclick = markDone;
-document.getElementByClassName(crossButton).onclick = removeItem;
-
 
 function addItem() {
   if (document.getElementById("textbox").value == "") {
-    
+    return;
   } else {
-    toDo = document.getElementById("toDo");
-    let input = document.getElementById("textbox").value;
-    const listItem = document.createElement("p");
-    listItem.id = "item";
-    listItem.className = "unprioritized";
-    
-    const exclamation = document.createElement("span");
-    const check = document.createElement("span");
-    const cross = document.createElement("span");
-    const listText = document.createElement("span");
-    
-    exclamation.innerHTML = " ! ";
-    check.innerHTML = "✓ ";
-    cross.innerHTML = " ✗";
-    listText.innerHTML = input;
+    const input = document.getElementById("textbox").value;
 
-    exclamation.className = "priorityButton";
-    check.className = "doneButton";
-    cross.className = "crossButton";
-    listText.className = "incomplete";
-    
-    exclamation.id = indexNumber + " excl";
-    check.id = indexNumber + " check";
-    cross.id = indexNumber + " cross";
-    listText.id = indexNumber + " item";
-    
-    indexNumber++
-    
-    exclamationArray.push(exclamation);
-    checkArray.push(check);
-    crossArray.push(cross);
-  
-    listItem.appendChild(exclamation);
-    listItem.appendChild(check);
-    listItem.appendChild(listText);
-    listItem.appendChild(cross);
-    listOfItems.push(listItem);
-  
-    document.getElementById("textbox").value = ""
-    
+    listOfItems.push({
+      id: listOfItems.length,
+      content: input,
+      priority: "low",
+      complete: false
+    });
+    document.getElementById("textbox").value = "";
+
     displayItems();
   }
 }
 
 function displayItems() {
-  toDo.innerHTML = "";
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
   for (let i = 0; i < listOfItems.length; i++) {
-    toDo.appendChild(listOfItems[i]);
-    console.log(listOfItems[i]);
+    const li = document.createElement("li");
+    const exclamation = document.createElement("span");
+    const check = document.createElement("span");
+    const cross = document.createElement("span");
+    const listText = document.createElement("span");
+
+    li.id = "item";
+
+    exclamation.innerHTML = "  ! ";
+    check.innerHTML = " ✓ ";
+    cross.innerHTML = " ✗";
+    listText.innerHTML = listOfItems[i].content;
+
+    if (listOfItems[i].priority === "low") {
+
+      exclamation.className = "priorityButton";
+      console.log(exclamation.className)
+
+    } else if (listOfItems[i].priority === "high") {
+
+      exclamation.className = "prioritizedButton";
+      console.log(exclamation.className)
+
+    }
+
+    check.className = "doneButton";
+    cross.className = "crossButton";
+
+    if (listOfItems[i].complete === true) {
+
+      listText.className = "complete";
+
+    } else if (listOfItems[i].complete === false) {
+
+      listText.className = "incomplete";
+
+    }
+
+    exclamation.id = i;
+    check.id = i;
+    cross.id = i;
+    listText.id = i;
+
+    exclamation.onclick = togglePriority;
+    check.onclick = markDone;
+    cross.onclick = removeItem;
+
+    li.appendChild(exclamation);
+    li.appendChild(check);
+    li.appendChild(listText);
+    li.appendChild(cross);
+    list.appendChild(li);
   }
-  console.log(listOfItems);
-  console.log(exclamationArray);
-  console.log(checkArray);
-  console.log(crossArray);
+
+
+  // document.getElementById("toDo").innerHTML = "";
+  // for (let i = 0; i < listOfItems.length; i++) {
+  //   toDo.appendChild(listOfItems[i]);
+  // }
 }
 
-// function raisePriority() {
-//   let index = .id;
-//   index.replace(" excl", "");
-//   listOfItems.unshift(listOfItems.splice(index, 1)[0]);
-//   exclamationArray[index].class = prioritizedButton
-//   displayItems();
-// }
+function togglePriority() {
+  const index = this.id;
 
-// function lowerPriority() {
+  if (listOfItems[index].priority === "low") {
+    listOfItems[index].priority = "high";
+
+    const item = listOfItems.splice(index, 1)[0];
+    listOfItems.unshift(item);
+  } else {
+    listOfItems[index].priority = "low";
+
+    const item = listOfItems.splice(index, 1)[0];
+    listOfItems.push(item);
+  }
+
+  displayItems();
+}
+
+// function lowerPriority(index) {
+//   toDo = document.getElementById("toDo");
 //   let index = .id;
 //   index.replace(" excl", "");
 //   listOfItems.push(listOfItems.splice(index, 1)[0]);
@@ -91,19 +122,24 @@ function displayItems() {
 // }
 
 
-// function markDone() {
-//   let index = .id;
-//   if (index.className == "incomplete") {
-//     index.className = "complete";
-//   } else if (index.className == "complete") {
-//     index.className = "incomplete";
-//   }
-//   displayItems();
-// }
+function markDone() {
+  const index = this.id;
+  toDo = document.getElementById("toDo");
+  if (listOfItems[index].complete === true) {
 
-// function removeItem() {
-//   let index = .id;
-//   index.replace(" cross", "");
-//   listOfItems.splice(index, 1)[0];
-//   displayItems();
-// }
+    listOfItems[index].complete = false;
+
+  } else if (listOfItems[index].complete === false) {
+
+    listOfItems[index].complete = true;
+
+  }
+  displayItems();
+}
+
+function removeItem() {
+  const index = this.id;
+  toDo = document.getElementById("toDo");
+  listOfItems.splice(index, 1);
+  displayItems();
+}

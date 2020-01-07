@@ -5,26 +5,29 @@
 
 .complete {
   text-decoration: line-through;
-  color: green;
 }
 
 .priorityButton {
   color: red;
   background-color: white;
+  cursor: pointer;
 }
 
 .prioritizedButton {
   color: red;
   background-color: black;
+  cursor: pointer;
 }
 
 .doneButton {
   color: green;
+  cursor: pointer;
 }
 
 .crossButton {
   background-color: red;
   color: black;
+  cursor: pointer;
 }
 
 h1 {
@@ -32,7 +35,7 @@ h1 {
   font-size: 40px;
 }
 
-p {
+li {
   font-size: 26px;
 }
 
@@ -41,4 +44,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+#add {
+  cursor: pointer;
 }
