@@ -1,14 +1,14 @@
 window.onload = function() {
-    document.getElementById("add").onclick = addItem;
-    document.getElementByClassName(priorityButton).onclick = raisePriority;
-    document.getElementByClassName(doneButton).onclick = markDone;
-    document.getElementByClassName(xButton).onclick = removeItem;
+  document.getElementById("add").onclick = addItem;
+  document.getElementByClassName(priorityButton).onclick = raisePriority;
+  document.getElementByClassName(doneButton).onclick = markDone;
+  document.getElementByClassName(crossButton).onclick = removeItem;
 }
 
 let listOfItems = [];
 let exclamationArray = [];
 let checkArray = [];
-let 
+let crossArray = [];
 let toDo;
 let indexNumber = 0;
 
@@ -31,21 +31,23 @@ function addItem() {
 
   exclamation.className = "priorityButton";
   check.className = "doneButton";
-  cross.className = "removeButton";
+  cross.className = "crossButton";
     
-  exclamation.id = indexNumber;
-  check.id = indexNumber;
-  cross.id = indexNumber;
-  listText.id = indexNumber;
+  exclamation.id = indexNumber + " excl";
+  check.id = indexNumber + " check";
+  cross.id = indexNumber + " cross";
+  listText.id = indexNumber + " item";
+    
+  exclamationArray.push(exclamation);
+  checkArray.push(check);
+  crossArray.push(cross);
   
   listItem.appendChild(exclamation);
   listItem.appendChild(check);
   listItem.appendChild(listText);
   listItem.appendChild(cross);
   listOfItems.push(listItem);
-    
-  exclamationArray = document.getElementByClassName(priorityButton);
-  checkArray = document.getElementByClassName(doneButton);
+  
   displayItems();
 }
 
@@ -55,16 +57,22 @@ function displayItems() {
     toDo.appendChild(listOfItems[i]);
     console.log(listOfItems[i]);
   }
+  console.log(listOfItems);
+  console.log(exclamationArray);
+  console.log(checkArray);
+  console.log(crossArray);
 }
 
 // function raisePriority() {
-//   const index = .id;
+//   let index = .id;
+//   index.replace(" excl", "");
 //   listOfItems.unshift(listOfItems.splice(index, 1)[0]);
 //   displayItems();
 // }
 
 // function markDone() {
-//   const index = .id;
+//   let index = .id;
+//   index.replace(" check", "");
 //   if (index.className == "incomplete") {
 //     index.className = "complete";
 //   } else if (index.className == "complete") {
@@ -74,7 +82,8 @@ function displayItems() {
 // }
 
 // function removeItem() {
-//   const index = .id;
+//   let index = .id;
+//   index.replace(" cross", "");
 //   listOfItems.push(listOfItems.splice(index, 1)[0]);
 //   displayItems();
 // }
