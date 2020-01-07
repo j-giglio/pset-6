@@ -13,42 +13,48 @@ let toDo;
 let indexNumber = 0;
 
 function addItem() {
-  toDo = document.getElementById("toDo");
-  let input = document.getElementById("textbox").value;
-  const listItem = document.createElement("p");
-  listItem.id = "item";
-  listItem.className = "incomplete";
+  if (document.getElementById("textbox").value == "") {
     
-  const exclamation = document.createElement("span");
-  const check = document.createElement("span");
-  const cross = document.createElement("span");
-  const listText = document.createElement("span");
+  } else {
+    toDo = document.getElementById("toDo");
+    let input = document.getElementById("textbox").value;
+    const listItem = document.createElement("p");
+    listItem.id = "item";
+    listItem.className = "incomplete";
     
-  exclamation.innerHTML = "! ";
-  check.innerHTML = "✓ ";
-  cross.innerHTML = "✗ ";
-  listText.innerHTML = input;
+    const exclamation = document.createElement("span");
+    const check = document.createElement("span");
+    const cross = document.createElement("span");
+    const listText = document.createElement("span");
+    
+    exclamation.innerHTML = "! ";
+    check.innerHTML = "✓ ";
+    cross.innerHTML = " ✗";
+    listText.innerHTML = input;
 
-  exclamation.className = "priorityButton";
-  check.className = "doneButton";
-  cross.className = "crossButton";
+    exclamation.className = "priorityButton";
+    check.className = "doneButton";
+    cross.className = "crossButton";
     
-  exclamation.id = indexNumber + " excl";
-  check.id = indexNumber + " check";
-  cross.id = indexNumber + " cross";
-  listText.id = indexNumber + " item";
+    exclamation.id = indexNumber + " excl";
+    check.id = indexNumber + " check";
+    cross.id = indexNumber + " cross";
+    listText.id = indexNumber + " item";
     
-  exclamationArray.push(exclamation);
-  checkArray.push(check);
-  crossArray.push(cross);
+    exclamationArray.push(exclamation);
+    checkArray.push(check);
+    crossArray.push(cross);
   
-  listItem.appendChild(exclamation);
-  listItem.appendChild(check);
-  listItem.appendChild(listText);
-  listItem.appendChild(cross);
-  listOfItems.push(listItem);
+    listItem.appendChild(exclamation);
+    listItem.appendChild(check);
+    listItem.appendChild(listText);
+    listItem.appendChild(cross);
+    listOfItems.push(listItem);
   
-  displayItems();
+    document.getElementById("textbox").value = ""
+    
+    displayItems();
+  }
 }
 
 function displayItems() {
