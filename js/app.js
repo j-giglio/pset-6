@@ -42,9 +42,9 @@ function displayItems() {
     li.id = "item";
 
     exclamation.innerHTML = "  ! ";
-    check.innerHTML = " ✓ ";
-    cross.innerHTML = " ✗";
-    listText.innerHTML = listOfItems[i].content;
+    check.innerHTML = " &#10003; ";
+    cross.innerHTML = " &#10007; ";
+    listText.innerHTML = listOfItems[i].content + " ";
 
     if (listOfItems[i].priority === "low") {
 
